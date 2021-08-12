@@ -120,6 +120,7 @@ a {
 
     & > li {
         padding: 10px 0;
+        align-self: center;
 
         &:not(:nth-child(5)){
             border-right: 0;

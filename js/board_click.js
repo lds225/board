@@ -13,49 +13,58 @@ document.getElementById("list").onclick = function(){
     window.location.href = "../board.html";  
 };
 
+
+
 $(function(){
+    let locationName = window.location.href;
+    let locationNum = locationName.charAt(locationName.length-1);
 
-    $('#go').click(function(){
-        const writer = $("#writer").val();
-        const subject = $("#subject").val();
-        const content = $("#content").val();
-        
+    $.ajax({
+        url: 'http://officialad.net/haneum/board?num='+locationNum+'',
+        type: 'GET',
+        dataType: 'JSON',
+        success: function(b){
 
-      
+            
 
-        const sendData = {
-            "writer": writer,
-            "subject": subject,
-            "content": content,
-        };
+            let boardData = b.data;
+            let boardContent = "";
 
-        if(writer === ""){
-            alert('이름을 입력해 주세요.');        
-            return;
-        }
+            let date = new Date(boardData.regDate);
 
-        if(subject === ""){
-            alert('제목을 입력해 주세요.');        
-            return;
-        }
+            function getFormatDate(date){
+                let year = date.getFullYear();
+                let month = ( 1 + date.getMonth());
+                let day = date.getDate();
+                let hour = date.getHours();
+                let minute = date.getMinutes();
 
-        if(content === ""){
-            alert('내용을 입력해 주세요.');        
-            return;
-        }
-       
-        $.ajax({
-            url: 'http://officialad.net/haneum/board',
-            type: 'POST',
-            contentType: 'application/json',
-            dataType: 'JSON',
-            data: JSON.stringify(sendData),
-            success: function(){
-                alert('게시글 등록완료!');
-                location.href = '../board.html'
+                month = month >= 10 ? month : '0' + month;
+                day = day >= 10 ? day : '0' + day;
+                hour = hour >= 10 ? hour : '0' + hour;
+                minute = minute >= 10 ? minute : '0' + minute;
+                return year + '-' + month + '-' + day + ' ' + hour + ':' + minute;
+            }
+
+            boardData.regDate =  getFormatDate(date);
+
+            boardContent += `<li>
+                    <h3 id="subject">`+boardData.subject+`</h3>
+                </li>
+                <li>
+                    <p id="name">`+boardData.writer+`</p>
+                    <p id="regDate">`+boardData.regDate+`</p>
+                    <p id="views">조회 <span>`+boardData.views+`</span></p>
+                </li>
+                <li>
+                <p id="content">
+                    `+boardData.content+`
+                </p>
+                </li>
+            `;
+            console.log(b.message);
+            document.getElementById("bCon").innerHTML = boardContent;
+
             }
         });
-    });
-    
-
 });
