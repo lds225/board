@@ -1,0 +1,268 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap");
+@font-face {
+  font-family: 'IBMPlexSansKR-Regular';
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "IBMPlexSansKR-Regular", "맑은 고딕", sans-serif;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.board {
+  width: 1000px;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.board.inner {
+  width: auto;
+  padding: 50px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.058), 4px 4px 15px rgba(0, 0, 0, 0.028);
+  border-radius: 5px;
+}
+
+.board.inner > .innerTop > li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.board.inner > .innerTop > li > p {
+  font-size: 14px;
+  color: #78c9e9;
+  font-weight: 600;
+  padding-bottom: 5px;
+}
+
+.board.inner > .innerTop > li > input {
+  font-size: 13px;
+  letter-spacing: 2px;
+  padding: 2px 10px;
+  background-color: #66aed8;
+  color: #fff;
+  border: 0;
+  border-radius: 2px;
+  transition: .1s ease;
+  cursor: pointer;
+}
+
+.board.inner > .innerTop > li > input:hover {
+  background-color: #449ccf;
+}
+
+.board > h2 {
+  text-align: center;
+  font-size: 30px;
+  color: #444444;
+  padding-bottom: 30px;
+}
+
+.bList {
+  font-size: 14px;
+}
+
+.listOpt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.listOpt > p > span {
+  color: #f05627;
+  font-weight: bold;
+}
+
+.listOpt > input {
+  border: 0;
+  padding: 2px 10px;
+  background-color: #66aed8;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  font-size: 14px;
+  color: #eee;
+  border-radius: 2px;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 5.5fr 1fr 1fr 1fr;
+  text-align: center;
+  border-collapse: collapse;
+  color: #444444;
+}
+
+.list > li {
+  padding: 10px 0;
+}
+
+.list > li:not(:nth-child(5)) {
+  border-right: 0;
+}
+
+.list.listName {
+  background-color: #ebf8fa;
+  color: #666666;
+}
+
+.list.listName > li {
+  border-top: 0;
+}
+
+.list.listValue {
+  border-bottom: 1px solid #eee;
+  color: #444444;
+}
+
+.list.listValue:hover {
+  background-color: #f3f3f3;
+  transition: .2s ease;
+}
+
+.list.listValue > li:nth-child(2) {
+  width: fit-content;
+  cursor: pointer;
+}
+
+.list.listValue > li:nth-child(2):hover {
+  font-weight: bold;
+  color: #222222;
+}
+
+.page {
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+#pageN {
+  display: flex;
+}
+
+#pageN > li {
+  padding: 5px 8px;
+  margin: 0 2px;
+  color: #666666;
+  cursor: pointer;
+}
+
+#pageN > li:hover {
+  color: #1ab7f5;
+}
+
+#pageN > li.on {
+  color: #1ab7f5;
+  font-weight: bold;
+}
+
+.bIner {
+  width: 600px;
+  margin: auto;
+  font-size: 0;
+}
+
+.bIner.click {
+  font-size: 14px;
+  color: #666666;
+  margin-top: 5px;
+}
+
+.bIner.click > li {
+  padding: 2px 0;
+  font-size: 16px;
+}
+
+.bIner.click > li:first-child {
+  display: block;
+  padding-top: 5px;
+}
+
+.bIner.click > li:first-child > h3 {
+  color: #333;
+  font-size: 20px;
+}
+
+.bIner.click > li:nth-child(2) {
+  display: flex;
+  color: #999;
+  font-size: 13px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.bIner.click > li:nth-child(2) > p {
+  padding-right: 8px;
+}
+
+.bIner.click > li:last-child {
+  padding: 10px 0;
+  text-align: start;
+}
+
+.bIner > li {
+  padding: 5px 0;
+}
+
+.bIner > li:first-child {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 10px;
+}
+
+.bIner > li:last-child {
+  text-align: end;
+}
+
+.bIner input[type="text"], .bIner textarea {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  outline-color: #a0d8ee;
+}
+
+.bIner textarea {
+  width: 100%;
+  height: 250px;
+  resize: none;
+}
+
+.bIner input[type="button"] {
+  padding: 5px 12px;
+  background-color: #66aed8;
+  color: #fff;
+  border: 0;
+  border-radius: 2px;
+  transition: .1s ease;
+  cursor: pointer;
+}
+
+.bIner input[type="button"]:hover {
+  background-color: #449ccf;
+}
+
+.bIner input[type="button"]:first-child {
+  background-color: #666666;
+  margin-right: 5px;
+}
+
+.bIner input[type="button"]:first-child:hover {
+  background-color: #444444;
+}

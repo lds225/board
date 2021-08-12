@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <link rel="stylesheet" href="css/board.css">
+    <script src="/js/board.js" defer></script>
+    <!-- 제이쿼리 연결 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+</head>
+<body>
+    <div class="board">
+        <h2>자유게시판</h2>
+
+
+        <div class="bList">
+            <div class="listOpt">
+                <p>총 <span class="totalCon"></span>건의 게시물</p>
+
+                <input type="button" value="글작성" class="btn" id="writeBtn">
+            </div>
+
+            <div class="boardLi">
+                <!-- 리스트 이름 -->
+                <ul class="list listName">
+                    <li>
+                        No
+                    </li>
+                    <li>
+                        제목
+                    </li>
+                    <li>
+                        작성일
+                    </li>
+                    <li>
+                        조회수
+                    </li>
+                    <li>
+                        작성자
+                    </li>
+                </ul>
+                
+                
+                <!-- 갖고올 리스트 값 -->
+                <div id="get">
+                    <!-- <ul class="list listValue" id="listValue">
+                        <li>
+                            1
+                        </li>
+                        <li>
+                            안녕하십니까요
+                        </li>
+                        <li>
+                            2021.05.01
+                        </li>
+                        <li>
+                            5
+                        </li>
+                        <li>
+                            이원지
+                        </li>
+                    </ul> -->
+                </div>
+                
+
+            </div>
+            
+        </div>
+
+        <div class="page">
+            <ul id="pageN">
+                <!-- <li class="on">1</li> -->
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

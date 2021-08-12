@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <link rel="stylesheet" href="css/board.css">
+    <script src="/js/board_inner.js" defer></script>
+    <!-- 제이쿼리 연결 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+</head>
+<body>
+    <div class="board inner">
+        <h2>자유게시판</h2>
+
+
+        <div class="bList">
+            <div class="boardLi">
+                <ul class="bIner">
+                    <li>
+                        <input type="text" placeholder="이름" id="writer">
+                        <input type="text" placeholder="제목" id="subject">
+                    </li>
+                    <li>
+                       <textarea name="content" id="content" placeholder="작성하기"></textarea>
+                    </li>
+                    <li>
+                        <input type="button" value="취소" id="cancle">
+                        <input type="button" value="등록" id="go">
+                    </li>
+                </ul>
+        </div>
+
+    </div>
+</body>
+</html>
