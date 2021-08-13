@@ -1,42 +1,37 @@
-// font
-@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
-@font-face {
-    font-family: 'IBMPlexSansKR-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 
-// css 초기화
-* {
-    padding: 0;
-    margin: 0;
-    font-family: "IBMPlexSansKR-Regular", "맑은 고딕", sans-serif;
-    box-sizing: border-box;
-}
 
-li {
-    list-style: none;
-}
+// scss import
+@import 'set';
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
 
+
+@media(hover:hover) {
+    .lgBtn {
+        & > input {
+            &:hover {
+                transform: translateY(-5px);
+                background-color: #66aed8;
+                color: #fff;
+            }
+        }
+    }           
+}   
+
+
+// 게시판
 .board {
     width: 1000px;
     margin: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    transition: .6s ease;
+
+    &.inner, &.line {
+        box-shadow: 2px 2px 6px rgba(0,0,0,0.058), 4px 4px 15px rgba(0,0,0,0.028);
+        width: 750px;
+        padding: 50px;
+        border-radius: 5px;
+    }
 
     &.inner {
-        width: auto;
-        padding: 50px;
-        box-shadow: 2px 2px 6px rgba(0,0,0,0.058), 4px 4px 15px rgba(0,0,0,0.028);
-        border-radius: 5px;
 
         & > .innerTop {
             
@@ -84,6 +79,36 @@ a {
     font-size: 14px;
 }
 
+.boardLi {
+    text-align: end;
+
+    & > input[type="button"] {
+        padding: 4px 8px;
+        border: 0;
+        border-radius: 2px;
+        color: #fff;
+        cursor: pointer;
+        transition: .2s ease;
+
+        &#del {
+            background-color: #555;
+            margin-right: 2px;
+
+            &:hover {
+                background-color: #444;
+            }
+        }
+
+        &#cor {
+            background-color: rgb(218, 72, 53);
+
+            &:hover {
+                background-color: rgb(206, 59, 39);
+            }
+        }
+    }
+}
+
 // 게시판 정보 옵션
 .listOpt {
     display: flex;
@@ -113,13 +138,13 @@ a {
 // 게시판 리스트
 .list {
     display: grid;
-    grid-template-columns: 1fr 5.5fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 5.5fr 1.5fr 1fr 1fr;
     text-align: center;
     border-collapse: collapse;
     color: #444444;
 
     & > li {
-        padding: 10px 0;
+        padding: 10px;
         align-self: center;
 
         &:not(:nth-child(5)){
@@ -139,15 +164,15 @@ a {
 
     &.listValue {
         border-bottom: 1px solid #eee;
-        color: #444444;
+        color: #222222;
 
         &:hover {
-            background-color: rgb(243, 243, 243);
+            background-color: rgb(248, 248, 248);
             transition: .2s ease;
         }
 
         & > li {
-           
+            padding: 20px 10px;
             &:nth-child(2) {
                 width: fit-content;
                 cursor: pointer;
@@ -156,6 +181,15 @@ a {
                     color: #222222;
                 }
             }
+
+            &:not(:nth-child(2)) {
+                font-size: 13px;
+            }
+
+            &:first-child, &:nth-child(3), &:nth-child(4) {
+                color: #999;
+            }
+
         }
     }
 }
@@ -189,9 +223,15 @@ a {
 }
 
 .bIner {
-    width: 600px;
     margin: auto;
     font-size: 0;
+
+    & p {
+        font-size: 14px;
+        text-align: start;
+        align-self: center;
+        color: #666666;
+    }
 
     &.click {
         font-size: 14px;
@@ -208,6 +248,7 @@ a {
                 & > h3 {
                     color: #333;
                     font-size: 20px;
+                    text-align: start;
                 }
             }
 
@@ -228,6 +269,8 @@ a {
                 text-align: start;
             }
         }
+
+       
     }
 
     & > li {
@@ -235,7 +278,7 @@ a {
 
         &:first-child {
             display: grid;
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: 1fr 3fr;
             column-gap: 10px;
         }
 
@@ -281,4 +324,35 @@ a {
 
        
     }
+    
 }
+
+.btns {
+    padding-top: 5px;
+    input[type="button"]{
+        padding: 5px 12px;
+        background-color: rgb(102, 174, 216);
+        color: #fff;
+        border: 0;
+        border-radius: 2px;
+        transition: .1s ease;
+        cursor: pointer;
+        &:hover {
+            background-color: rgb(68, 156, 207);
+        }
+
+        &:first-child {
+            background-color: #666666;
+            margin-right: 5px;
+
+            &:hover {
+                background-color: #444444;
+            }
+        }
+
+       
+    }
+}
+
+// 반응형
+@include board;

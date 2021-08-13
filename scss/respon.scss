@@ -1,0 +1,100 @@
+$pick: 1050px;
+$pad: 768px;
+$mobile: 550px;
+$ok: #66aed8;
+$no: #666666;
+$shadow: 2px 2px 6px rgba(0,0,0,0.058), 4px 4px 15px rgba(0,0,0,0.028);
+
+@mixin board{
+    @media(max-width: $pick){
+        .container {
+            width: 90%;
+        }
+
+        .board {
+            width: 100%;
+        }
+    }
+
+    @media(max-width: $pad){
+        .board {
+            &.line {
+                width: 90%;
+            }
+        }
+    }
+
+
+    @media(max-width: $mobile){
+        
+        .container {
+            width: 95%;
+            padding-top: 50px;
+
+            &.lgBtn {
+                top: 5%;
+            }
+        }
+    
+        .board {
+            &.line {
+                width: 100%;
+                box-shadow: none;
+                padding: 15px;
+            }
+        }
+
+        .list {
+            grid-template-columns: 1.5fr 5.5fr 1.5fr 2fr;
+
+            & > li {
+                &:last-child {
+                    display: none;
+                }
+            }
+
+            &#listValue {
+                & > li {
+                    padding: 10px;
+                }
+            }
+        }
+
+        .bIner {
+            & > li {
+                &:first-child {
+                    grid-template-columns: 1fr;
+                    row-gap: 8px;
+                }
+            }
+        }
+
+    }
+}
+
+@mixin join {
+    @media(min-width: $mobile) {
+        .join {
+            width: fit-content;
+            box-shadow: $shadow;
+            padding: 30px;
+        }
+
+        h3 {
+            font-size: 22px;
+        }
+
+        .joinCon {
+            width: 350px;
+
+            & > li {
+                padding-bottom: 15px;
+            }
+        }
+
+        input {
+            font-size: 15px;
+        }
+
+    }
+}

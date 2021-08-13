@@ -1,0 +1,93 @@
+@import 'set';
+
+.container, .join {
+    transition: .6s ease;
+}
+
+.join {
+    text-align: center;
+    width: 90%;
+    margin: auto;
+
+    & > a {
+        font-size: 15px;
+        color: #888888;
+        transition: .4s ease;
+        padding: 2px 5px;
+        margin: 0 5px;
+
+        &:hover {
+            color: #444444;
+            background-color: #e3f7ff;
+        }
+    }
+}
+
+h3 {
+    color: #444444;
+    padding-top: 10px;
+}
+
+.joinCon {
+    max-width: 350px;
+    transition: .2s ease;
+    margin: auto;
+
+    & > li {
+        padding-bottom: 10px;
+
+        & > span {
+            font-size: 14px;
+            color: #f05627;
+        }
+
+        & > input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline-color: #a0d8ee;
+
+            &[type="button"]{
+                border: 0;
+                color: #fff;
+                cursor: pointer;
+            }
+        }
+
+        &:last-child {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 10px;
+
+            & > input {
+                &:first-child {
+                    background-color: $no;
+                }
+
+                &:last-child {
+                    background-color: $ok;
+                }
+            }
+        }
+    }
+
+    &.login {
+
+        & > li {
+            & > h3 {
+                padding-bottom: 10px;
+            }
+
+            &:last-child {
+                display: block;;
+            }
+        }
+        
+    }
+
+
+}
+
+@include board;
+@include join;

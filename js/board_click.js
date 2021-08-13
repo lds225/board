@@ -10,7 +10,7 @@
 
 
 document.getElementById("list").onclick = function(){
-    window.location.href = "../board.html";  
+    window.location.href = "/board.html";  
 };
 
 
@@ -24,8 +24,6 @@ $(function(){
         type: 'GET',
         dataType: 'JSON',
         success: function(b){
-
-            
 
             let boardData = b.data;
             let boardContent = "";
@@ -67,4 +65,33 @@ $(function(){
 
             }
         });
+    
+    // 게시물 삭제
+    $('#del').click(function(){
+        let ask = confirm('삭제하시겠습니까?');
+
+        if(ask) {
+            $.ajax({
+                url: 'http://officialad.net/haneum/board',
+                type: 'DELETE',
+                dataType : 'JSON',
+                contentType : 'application/json',
+                data: JSON.stringify({
+                    "num" : locationNum
+                }),
+                success: function(){
+
+                    alert("삭제되었습니다.");
+                    window.location.href = '/board.html';
+                }
+    
+            });
+        }
+
+        
+    });
+
+    $('#cor').on("click",function(){
+        document.location.href = `/board_change.html?num=`+locationNum+``;
+    });
 });
