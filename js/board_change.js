@@ -38,7 +38,7 @@ $(function(){
     $('#cancle').on('click',function(){
         let ask = confirm("취소하시겠습니까?");
         if(ask){
-            window.location.href = `/board_click.html?num=`+locationNum+``;
+            window.location.href = `./board_click.html?num=`+locationNum+``;
         } else {
             return false;
         }
@@ -66,7 +66,7 @@ $(function(){
                 }),
                 success:function(){
                     alert('등록완료!');
-                    window.location.href = `/board_click.html?num=`+locationNum+``;
+                    window.location.href = `./board_click.html?num=`+locationNum+``;
                 }
 
             });

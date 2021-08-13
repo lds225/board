@@ -182,17 +182,17 @@ $(function(){
 
     // 글작성 버튼 클릭
     document.getElementById("writeBtn").onclick = function(){
-        window.location.href = "/board_inner.html"  
+        window.location.href = "./board_inner.html"  
     };
 
     // 회원가입 페이지로 이동
     $('#goJoin').on('click',function(){
-        window.location.href = "/join.html"  
+        window.location.href = "./join.html"  
     });
 
     // 로그인 페이지로 이동
     $('#goLogin').on('click',function(){
-        window.location.href = "/login.html"  
+        window.location.href = "./login.html"  
     });
     
 

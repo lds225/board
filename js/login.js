@@ -14,7 +14,6 @@ $(function(){
             alert('아이디 없다~');
             userId.focus();
             return false;
-
         }
 
         if(userPassword.val() == ""){
@@ -29,6 +28,7 @@ $(function(){
             userId.focus();
             return false;
         }
+
         if(!ckIdpw.test(userPassword.val())){
             alert('비밀번호는 영어랑 숫자');
             userPassword.focus();
@@ -37,7 +37,7 @@ $(function(){
 
         else{
             alert('어서와~');
-            window.location.href = "/board.html";
+            window.location.href = "./board.html";
         }
 
     }

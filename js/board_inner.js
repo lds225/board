@@ -12,7 +12,7 @@
 document.getElementById("cancle").onclick = function(){
     let can = confirm('취소하시겠습니까?');
     if(can == true) {
-        window.location.href = "/board.html";  
+        window.location.href = "./board.html";  
     }else {
         return false;
     }
@@ -57,7 +57,7 @@ $(function(){
             data: JSON.stringify(sendData),
             success: function(){
                 alert('게시글 등록완료!');
-                location.href = '/board.html'
+                location.href = './board.html'
             }
         });
     });

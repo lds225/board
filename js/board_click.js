@@ -10,7 +10,7 @@
 
 
 document.getElementById("list").onclick = function(){
-    window.location.href = "/board.html";  
+    window.location.href = "./board.html";  
 };
 
 
@@ -82,7 +82,7 @@ $(function(){
                 success: function(){
 
                     alert("삭제되었습니다.");
-                    window.location.href = '/board.html';
+                    window.location.href = './board.html';
                 }
     
             });
@@ -92,6 +92,6 @@ $(function(){
     });
 
     $('#cor').on("click",function(){
-        document.location.href = `/board_change.html?num=`+locationNum+``;
+        document.location.href = `./board_change.html?num=`+locationNum+``;
     });
 });
